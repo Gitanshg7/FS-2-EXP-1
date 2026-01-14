@@ -10,6 +10,7 @@ function App() {
     setTasks([...tasks, task])
     setTask("")
   }
+  
   return(
     <div>
       <h1>TO DO LIST</h1>

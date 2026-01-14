@@ -1,0 +1,43 @@
+/* Remove default browser spacing */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Full-screen app container */
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical center */
+  align-items: center;       /* horizontal center */
+  text-align: center;
+}
+
+/* Form layout */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Submitted data section */
+.result {
+  margin-top: 20px;
+}
