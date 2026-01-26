@@ -1,0 +1,7 @@
+.watch-page {
+    min-height: 100vh;
+}
+
+.watch-page.theater-mode {
+    background-color: #000;
+}

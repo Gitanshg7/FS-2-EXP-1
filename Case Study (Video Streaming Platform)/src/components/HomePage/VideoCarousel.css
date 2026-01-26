@@ -1,0 +1,31 @@
+.video-carousel {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+.carousel-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carousel-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-arrow {
+    display: none;
+}
+
+.carousel-container:hover .carousel-arrow {
+    display: inline-flex;
+}
+
+@media (max-width: 768px) {
+    .carousel-arrow {
+        display: none !important;
+    }
+}
