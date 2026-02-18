@@ -1,31 +1,50 @@
-import { useState, lazy, Suspense } from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import './App.css'
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
 
-const Home = lazy(() => import('./components/home.jsx'),1500)
-const About = lazy(() => import('./components/about.jsx'),3000)
-const Contact = lazy(() => import('./components/contact.jsx'),3000)
+// Lazy loading with artificial delay
+const Home = lazy(() =>
+  new Promise((resolve) =>
+    setTimeout(() => resolve(import("./components/home.jsx")), 1000)
+  )
+);
+
+const About = lazy(() =>
+  new Promise((resolve) =>
+    setTimeout(() => resolve(import("./components/about.jsx")), 1200)
+  )
+);
+
+const Contact = lazy(() =>
+  new Promise((resolve) =>
+    setTimeout(() => resolve(import("./components/contact.jsx")), 1500)
+  )
+);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <BrowserRouter>
-      <nav>
-        <button><Link to="/">Home</Link></button>
-        <button><Link to="/about">About</Link></button>
-        <button><Link to="/contact">Contact</Link></button>
-      </nav>
+      <div className="container">
+        <h1 className="title">Lazy Loading SPA</h1>
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </Suspense>
+        <nav className="navbar">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
+        </nav>
+
+        <div className="content">
+          <Suspense fallback={<div className="loader">Loading Page...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </Suspense>
+        </div>
+      </div>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
